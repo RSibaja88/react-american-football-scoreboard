@@ -1,41 +1,55 @@
 //TODO: STEP 1 - Import the useState hook.
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
 import BottomRow from "./BottomRow";
 
 function App() {
-  //TODO: STEP 2 - Establish your applictaion's state with some useState hooks.  You'll need one for the home score and another for the away score.
+  const [griffyndorCount, setGriffyndorCount] = useState(0);
+  const [hufflepuffCount, setHufflepuffCount] = useState(0);
+
+ 
+
+
+  //TODO: STEP 2 - Establish your applictaion's state with some useState hooks.  You'll need one for the griffyndor score and another for the hufflepuff score.
 
   return (
     <div className="container">
       <section className="scoreboard">
+      <h1 className="hogwartsQudditch"> Hogwarts  Qudditch </h1>
         <div className="topRow">
-          <div className="home">
-            <h2 className="home__name">Lions</h2>
-
-            {/* TODO STEP 3 - We need to change the hardcoded values in these divs to accept dynamic values from our state. */}
-
-            <div className="home__score">32</div>
-          </div>
-          <div className="timer">00:03</div>
-          <div className="away">
-            <h2 className="away__name">Tigers</h2>
-            <div className="away__score">32</div>
-          </div>
-        </div>
+          <div className="griffyndor">
+            <h2 className="griffyndor__name"> Griffyndor </h2>  
+            {/* TODO STEP 3 - We need to change the hardcoded values in these divs to accept dynamic values from our state. */}  
+            <div className="griffyndor__score"> {griffyndorCount} </div>  
+          </div>  
+          <div className="timer"> 07: 31 </div>  
+          <div className="hufflepuff">
+            <h2 className="hufflepuff__name"> Hufflepuff </h2>  
+            <div className="hufflepuff__score"> {hufflepuffCount} </div>  
+          </div>  
+        </div>  
         <BottomRow />
-      </section>
+      </section>  
       <section className="buttons">
-        <div className="homeButtons">
-          {/* TODO STEP 4 - Now we need to attach our state setter functions to click listeners. */}
-          <button className="homeButtons__touchdown">Home Touchdown</button>
-          <button className="homeButtons__fieldGoal">Home Field Goal</button>
-        </div>
-        <div className="awayButtons">
-          <button className="awayButtons__touchdown">Away Touchdown</button>
-          <button className="awayButtons__fieldGoal">Away Field Goal</button>
-        </div>
-      </section>
+        <div className="griffyndorButtons">
+            
+          {/* TODO STEP 4 - Now we need to attach our state setter functions to click listeners. */}  
+          <button
+            className="griffyndorButtons__touchdown"
+            onClick={() => setGriffyndorCount(griffyndorCount + 10)}> Griffyndor Goal </button>  
+          <button
+            className="griffyndorButtons__fieldGoal"
+            onClick={() => setGriffyndorCount(griffyndorCount + 150)}> Griffyndor Snitch </button>  
+        </div>  
+        <div className="hufflepuffButtons">
+          <button
+            className="hufflepuffButtons__touchdown"
+            onClick={() => setHufflepuffCount(hufflepuffCount + 10)}> Hufflepuff Goal </button>  
+          <button
+            className="hufflepuffButtons__fieldGoal"
+            onClick={() => setHufflepuffCount(hufflepuffCount + 150)}> Hufflepuff Snitch </button>  
+        </div>  
+      </section>  
     </div>
   );
 }
